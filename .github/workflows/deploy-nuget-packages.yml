@@ -50,11 +50,17 @@ jobs:
 
     - name: Restore dependencies
       if: steps.dotnet_affected.outputs.has_output == 'true'
-      run: dotnet restore affected.proj
+      run: |
+        for proj in $(cat affected.proj); do
+          dotnet restore $proj
+        done
 
     - name: Build affected projects
       if: steps.dotnet_affected.outputs.has_output == 'true'
-      run: dotnet build affected.proj --configuration Release
+      run: |
+        for proj in $(cat affected.proj); do
+          dotnet build $proj --configuration Release
+        done
   
     - name: Test affected projects
       if: steps.dotnet_affected.outputs.has_output == 'true'
