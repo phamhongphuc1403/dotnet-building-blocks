@@ -27,7 +27,7 @@ jobs:
     - name: Determine affected projects
       id: dotnet_affected
       run: |
-        dotnet new tool-manifest && dotnet tool install dotnet-affected && touch affected.txt
+        dotnet new tool-manifest && dotnet tool install dotnet-affected
   
         if dotnet affected -f text traversal \
           --from "${{ steps.setSHAs.outputs.base }}" \
@@ -51,3 +51,11 @@ jobs:
     - name: Test affected projects
       if: steps.dotnet_affected.outputs.has_output == 'true'
       run: dotnet test affected.proj
+
+    - name: Pack affected projects
+      if: steps.dotnet_affected.outputs.has_output == 'true'
+      run: dotnet pack affected.proj
+    
+    - name: Push NuGet packages
+      if: steps.dotnet_affected.outputs.has_output == 'true'
+      run: dotnet nuget push **/Release/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json
