@@ -1,0 +1,59 @@
+# This workflow will build a .NET project
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
+
+name: .NET
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+  
+    - name: Work out last successful commit
+      id: setSHAs
+      uses: nrwl/nx-set-shas@v4
+      
+    - name: Determine affected projects
+      id: dotnet_affected
+      run: |
+        dotnet new tool-manifest && dotnet tool install dotnet-affected
+  
+        if dotnet affected -f text traversal \
+          --from "${{ steps.setSHAs.outputs.base }}" \
+          --to "${{ github.sha }}"; then
+         if [ -s affected.txt ]; then
+           cat affected.txt
+           echo "Number of affected projects: " $(wc -l < affected.txt)
+           echo "has_output=true" >> $GITHUB_OUTPUT
+         else
+           echo "No affected projects."
+           echo "has_output=false" >> $GITHUB_OUTPUT
+         fi
+        elif [ $? -ne 166 ]; then
+         echo "Exiting, error occurred"
+         exit 1
+        else
+         echo "No affected projects."
+         echo "has_output=false" >> $GITHUB_OUTPUT
+        fi
+  
+    - name: Test affected projects
+      if: steps.dotnet_affected.outputs.has_output == 'true'
+      run: dotnet test affected.proj
+      
+    - name: Pack affected projects
+      if: steps.dotnet_affected.outputs.has_output == 'true'
+      run: dotnet pack affected.proj
+    
+    - name: Push NuGet packages
+      if: steps.dotnet_affected.outputs.has_output == 'true'
+      run: dotnet nuget push **/Release/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json
