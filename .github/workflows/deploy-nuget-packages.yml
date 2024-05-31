@@ -27,7 +27,7 @@ jobs:
     - name: Determine affected projects
       id: dotnet_affected
       run: |
-        dotnet tool install dotnet-affected && touch affected.txt
+        dotnet new tool-manifest && dotnet tool install dotnet-affected && touch affected.txt
   
         if dotnet affected -f text traversal \
           --from "${{ steps.setSHAs.outputs.base }}" \
