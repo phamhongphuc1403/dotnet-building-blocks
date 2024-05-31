@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageId>Phuc1403.BuildingBlock.Infrastructure.Redis</PackageId>
+        <Version>$([System.DateTime]::Now.ToString("yyyy.MM.dd.HHmm"))</Version>
+        <Authors>Phuc Pham Hong</Authors>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.3"/>
+        <PackageReference Include="StackExchange.Redis" Version="2.7.27"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\Core\BuildingBlock.Core.Application\BuildingBlock.Core.Application.csproj"/>
+    </ItemGroup>
+
+</Project>
