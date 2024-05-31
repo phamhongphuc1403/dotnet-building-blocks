@@ -7,7 +7,6 @@
         <PackageId>Phuc1403.BuildingBlock.Core.Domain</PackageId>
         <Version>$([System.DateTime]::Now.ToString("yyyy.MM.dd.HHmm"))</Version>
         <Authors>Phuc Pham Hong</Authors>
-        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     </PropertyGroup>
 
     <ItemGroup>
