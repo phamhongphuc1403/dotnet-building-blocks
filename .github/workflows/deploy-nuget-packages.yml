@@ -47,14 +47,22 @@ jobs:
          echo "No affected projects."
          echo "has_output=false" >> $GITHUB_OUTPUT
         fi
+
+    - name: Restore dependencies
+      if: steps.dotnet_affected.outputs.has_output == 'true'
+      run: dotnet restore affected.proj
+
+    - name: Build affected projects
+      if: steps.dotnet_affected.outputs.has_output == 'true'
+      run: dotnet build affected.proj --configuration Release
   
     - name: Test affected projects
       if: steps.dotnet_affected.outputs.has_output == 'true'
-      run: dotnet test affected.proj
-
+      run: dotnet test affected.proj --no-build
+      
     - name: Pack affected projects
       if: steps.dotnet_affected.outputs.has_output == 'true'
-      run: dotnet pack affected.proj
+      run: dotnet pack affected.proj --no-build --configuration Release
     
     - name: Push NuGet packages
       if: steps.dotnet_affected.outputs.has_output == 'true'
