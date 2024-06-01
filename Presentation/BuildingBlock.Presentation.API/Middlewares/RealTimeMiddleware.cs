@@ -10,6 +10,7 @@ public static class RealTimeMiddleware
     {
         app.MapHub<Hub>("hub");
 
+        
         return app;
     }
 }
