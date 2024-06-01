@@ -5,7 +5,7 @@ name: .NET
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "*" ]
 
 jobs:
   build:
@@ -52,7 +52,13 @@ jobs:
       
     - name: Pack affected projects
       if: steps.dotnet_affected.outputs.has_output == 'true'
-      run: dotnet pack affected.proj
+      run: |
+        if [ "${{ github.ref_name }}" == "main" ]; then
+          dotnet pack affected.proj
+        else
+          VERSION=$(date +"%Y.%m.%d.%H%M")
+          dotnet pack affected.proj /p:Version=${VERSION}-dev
+        fi
     
     - name: Push NuGet packages
       if: steps.dotnet_affected.outputs.has_output == 'true'
