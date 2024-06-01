@@ -56,7 +56,8 @@ jobs:
         if [ "${{ github.ref_name }}" == "main" ]; then
           dotnet pack affected.proj
         else
-          dotnet pack affected.proj -p:PackageVersionSuffix=dev
+          VERSION=$(date +"%Y.%m.%d.%H%M")
+          dotnet pack affected.proj /p:Version=${VERSION}-dev
         fi
     
     - name: Push NuGet packages
