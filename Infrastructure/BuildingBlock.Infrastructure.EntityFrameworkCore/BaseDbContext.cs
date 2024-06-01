@@ -15,8 +15,6 @@ public class BaseDbContext : DbContext
     {
         _currentUser = currentUser;
         _mediator = mediator;
-        
-        
     }
 
     protected override void OnModelCreating(ModelBuilder builder)
