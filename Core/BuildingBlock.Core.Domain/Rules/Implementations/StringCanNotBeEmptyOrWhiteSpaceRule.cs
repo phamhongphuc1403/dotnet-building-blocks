@@ -7,16 +7,20 @@ public class StringCanNotBeEmptyOrWhiteSpaceRule : IBusinessRule
     private readonly string _name;
     private readonly string? _value;
 
-    protected StringCanNotBeEmptyOrWhiteSpaceRule(string? value, string name)
+
+    public StringCanNotBeEmptyOrWhiteSpaceRule(string? value, string name)
     {
         _value = value;
         _name = name;
     }
 
+    public string? Message { get; private set; }
+
     public bool IsBroken()
     {
-        return string.IsNullOrEmpty(_value) || string.IsNullOrWhiteSpace(_value);
-    }
+        if (!string.IsNullOrEmpty(_value) && !string.IsNullOrWhiteSpace(_value)) return false;
 
-    public string Message => $"{_name} can not be empty or contain only white spaces.";
+        Message = $"{_name} with value: {_value} can not be empty or contain only white spaces.";
+        return true;
+    }
 }

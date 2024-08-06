@@ -31,30 +31,26 @@ public class Optional<T>
 
     public T Get()
     {
-        CheckIfInstanceIsNotNull();
+        CheckIfExist();
         return _instance!;
     }
 
-    public Optional<T> ThrowIfNotEqual(T value, Exception exception)
+    public Optional<T> ThrowIfNotEqual(T? value, Exception exception)
     {
-        CheckIfInstanceIsNotNull();
+        if (Equals(_instance, value)) return this;
 
-        if (!_instance!.Equals(value)) throw exception;
-
-        return this;
+        throw exception;
     }
 
-    public Optional<T> ThrowIfEqual(T value, Exception exception)
+    public Optional<T> ThrowIfEqual(T? value, Exception exception)
     {
-        CheckIfInstanceIsNotNull();
+        if (!Equals(_instance, value)) return this;
 
-        if (_instance!.Equals(value)) throw exception;
-
-        return this;
+        throw exception;
     }
 
-    private void CheckIfInstanceIsNotNull()
+    private void CheckIfExist()
     {
-        if (_instance == null) throw new InvalidOperationException("No value present");
+        ThrowIfNotExist(new InvalidOperationException("Instance is null."));
     }
 }

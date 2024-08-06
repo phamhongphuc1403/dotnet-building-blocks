@@ -25,21 +25,6 @@ public static class ConfigurationUtilities
 
         if (config == null) throw new Exception($"{sectionName} configuration is not provided.");
 
-        CheckForNullProperties(config, sectionName);
-
         return config;
-    }
-
-    private static void CheckForNullProperties(object obj, string sectionName)
-    {
-        var properties = obj.GetType().GetProperties();
-
-        foreach (var property in properties)
-        {
-            var value = property.GetValue(obj, null);
-
-            if (value == null)
-                throw new Exception($"Property '{property.Name}' in section '{sectionName}' is missing.");
-        }
     }
 }

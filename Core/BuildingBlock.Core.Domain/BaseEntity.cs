@@ -1,3 +1,4 @@
+using System.Collections;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Reflection;
@@ -91,7 +92,7 @@ public abstract class Entity : AuditEntity<Guid>, IEntity
 
         foreach (var value in propertyValues)
         {
-            object?[] parameters = { deletedAt, deletedBy };
+            object?[] parameters = [deletedAt, deletedBy];
             deleteMethod.Invoke(value, parameters);
         }
     }
@@ -118,7 +119,7 @@ public abstract class Entity : AuditEntity<Guid>, IEntity
 
 public abstract class AggregateRoot : Entity, IAggregateRoot
 {
-    public List<IDomainEvent> DomainEvents { get; } = new();
+    public List<IDomainEvent> DomainEvents { get; } = [];
 
     public void AddDomainEvent(IDomainEvent domainEvent)
     {
