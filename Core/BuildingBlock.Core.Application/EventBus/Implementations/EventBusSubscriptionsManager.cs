@@ -6,7 +6,7 @@ namespace BuildingBlock.Core.Application.EventBus.Implementations;
 
 public class EventBusSubscriptionsManager : IEventBusSubscriptionsManager
 {
-    private readonly List<Type> _eventTypes = new();
+    private readonly List<Type> _eventTypes = [];
     private readonly Dictionary<string, List<Type>> _handlers = new();
 
     public bool IsEmpty => _handlers is { Count: 0 };
@@ -63,7 +63,7 @@ public class EventBusSubscriptionsManager : IEventBusSubscriptionsManager
 
     private void DoAddSubscription(Type handlerType, string eventName)
     {
-        if (!HasSubscriptionsForEvent(eventName)) _handlers.Add(eventName, new List<Type>());
+        if (!HasSubscriptionsForEvent(eventName)) _handlers.Add(eventName, []);
 
         if (_handlers[eventName].Any(type => type == handlerType))
             throw new ArgumentException(

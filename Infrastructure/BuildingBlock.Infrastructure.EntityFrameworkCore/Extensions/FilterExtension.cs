@@ -13,7 +13,7 @@ public static class FilterExtension
     public static void SetSoftDeleteFilter(this ModelBuilder modelBuilder, Type entityType)
     {
         SetSoftDeleteFilterMethod.MakeGenericMethod(entityType)
-            .Invoke(null, new object[] { modelBuilder });
+            .Invoke(null, [modelBuilder]);
     }
 
     public static void SetSoftDeleteFilter<TEntity>(this ModelBuilder modelBuilder)

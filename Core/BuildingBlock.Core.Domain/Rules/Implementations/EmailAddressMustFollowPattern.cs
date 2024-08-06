@@ -12,6 +12,8 @@ public class EmailAddressMustFollowPattern : IBusinessRule
         _email = email;
     }
 
+    public string? Message { get; private set; }
+
     public bool IsBroken()
     {
         try
@@ -21,9 +23,13 @@ public class EmailAddressMustFollowPattern : IBusinessRule
         }
         catch (FormatException)
         {
+            Message = $"Email address: '{_email}' is not valid.";
+            return true;
+        }
+        catch (ArgumentException)
+        {
+            Message = $"Email address: '{_email}' can not be empty.";
             return true;
         }
     }
-
-    public string Message => $"Email address: '{_email}' is not valid.";
 }
