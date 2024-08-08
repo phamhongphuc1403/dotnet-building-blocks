@@ -1,5 +1,4 @@
 using BuildingBlock.Core.Application;
-using BuildingBlock.Core.Domain;
 using BuildingBlock.Infrastructure.EntityFrameworkCore.Extensions;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
@@ -20,21 +19,11 @@ public class BaseDbContext : DbContext
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
-
-        foreach (var entityType in builder.Model.GetEntityTypes())
-            if (typeof(IEntity).IsAssignableFrom(entityType.ClrType))
-                builder.SetSoftDeleteFilter(entityType.ClrType);
     }
 
     public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
     {
         await _mediator.DispatchDomainEventsAsync(this);
-
-        var auditedEntities = ChangeTracker.Entries()
-            .Where(e => e is
-                { Entity: IEntity, State: EntityState.Added or EntityState.Modified or EntityState.Deleted });
-
-        auditedEntities.SetAuditProperties(_currentUser);
 
         return await base.SaveChangesAsync(cancellationToken);
     }
