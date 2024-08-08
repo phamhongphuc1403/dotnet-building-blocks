@@ -1,44 +1,6 @@
-using BuildingBlock.Core.Domain;
 using FluentAssertions;
 
 namespace Tests.Core.Domain;
-
-public class EntityTest
-{
-    public class TestEntity : Entity
-    {
-        public TestEntity()
-        {
-            UpdatedAt = DateTime.Now;
-            UpdatedBy = "Test";
-        }
-
-        public List<TestEntity> TestEntities { get; set; } = [];
-        public List<int> TestInts { get; set; } = [1, 2, 3];
-        public List<string> TestStrings { get; set; } = [];
-        public TestEntity ChildEntity { get; set; } = null!;
-    }
-
-    public class ResetUpdatedTimeStamp
-    {
-        public class ShouldResetUpdatedTimeStamp
-        {
-            [Fact]
-            public void WhenInvoke()
-            {
-                // Arrange
-                var entity = new TestEntity();
-
-                // Act
-                entity.ResetUpdatedTimeStamp();
-
-                // Assert
-                entity.UpdatedAt.Should().BeNull();
-                entity.UpdatedBy.Should().BeNull();
-            }
-        }
-    }
-}
 
 public class AggregateRootTest
 {
