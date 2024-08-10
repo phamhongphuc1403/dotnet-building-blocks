@@ -1,30 +1,30 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildingBlock.Presentation.API", "Presentation\BuildingBlock.Presentation.API\BuildingBlock.Presentation.API.csproj", "{0C2BE5AF-98DD-4E1D-A385-98E6B2D8A3A2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildingBlock.Presentation.API", "Presentations\BuildingBlock.Presentation.API\BuildingBlock.Presentation.API.csproj", "{0C2BE5AF-98DD-4E1D-A385-98E6B2D8A3A2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildingBlock.Core.Domain", "Core\BuildingBlock.Core.Domain\BuildingBlock.Core.Domain.csproj", "{7866A094-0503-49C6-A753-B2F2A9653B7F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildingBlock.Core.Application", "Core\BuildingBlock.Core.Application\BuildingBlock.Core.Application.csproj", "{05BF9C88-F881-464B-86B8-AA32A3011F4E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildingBlock.Infrastructure.EntityFrameworkCore", "Infrastructure\BuildingBlock.Infrastructure.EntityFrameworkCore\BuildingBlock.Infrastructure.EntityFrameworkCore.csproj", "{5D33F792-F3DF-4426-8943-9B06D221F868}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildingBlock.Infrastructure.EntityFrameworkCore", "Infrastructures\BuildingBlock.Infrastructure.EntityFrameworkCore\BuildingBlock.Infrastructure.EntityFrameworkCore.csproj", "{5D33F792-F3DF-4426-8943-9B06D221F868}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildingBlock.Infrastructure.Identity", "Infrastructure\BuildingBlock.Infrastructure.Identity\BuildingBlock.Infrastructure.Identity.csproj", "{6CCB9A29-182C-4709-BEB3-4A45971452FA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildingBlock.Infrastructure.Identity", "Infrastructures\BuildingBlock.Infrastructure.Identity\BuildingBlock.Infrastructure.Identity.csproj", "{6CCB9A29-182C-4709-BEB3-4A45971452FA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildingBlock.Infrastructure.Mailkit", "Infrastructure\BuildingBlock.Infrastructure.Mailkit\BuildingBlock.Infrastructure.Mailkit.csproj", "{963AD3F0-304F-4336-9B54-7B8725B80077}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildingBlock.Infrastructure.Mailkit", "Infrastructures\BuildingBlock.Infrastructure.Mailkit\BuildingBlock.Infrastructure.Mailkit.csproj", "{963AD3F0-304F-4336-9B54-7B8725B80077}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildingBlock.Infrastructure.RabbitMQ", "Infrastructure\BuildingBlock.Infrastructure.RabbitMQ\BuildingBlock.Infrastructure.RabbitMQ.csproj", "{4E1A0628-01F4-4876-B943-AC9FAFB19238}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildingBlock.Infrastructure.RabbitMQ", "Infrastructures\BuildingBlock.Infrastructure.RabbitMQ\BuildingBlock.Infrastructure.RabbitMQ.csproj", "{4E1A0628-01F4-4876-B943-AC9FAFB19238}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildingBlock.Infrastructure.Redis", "Infrastructure\BuildingBlock.Infrastructure.Redis\BuildingBlock.Infrastructure.Redis.csproj", "{2667E7B6-8451-4842-9CC5-0663C8CAE5F4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildingBlock.Infrastructure.Redis", "Infrastructures\BuildingBlock.Infrastructure.Redis\BuildingBlock.Infrastructure.Redis.csproj", "{2667E7B6-8451-4842-9CC5-0663C8CAE5F4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildingBlock.Infrastructure.Serilog", "Infrastructure\BuildingBlock.Infrastructure.Serilog\BuildingBlock.Infrastructure.Serilog.csproj", "{C9891FE2-E5C6-4773-BCA0-919FDCC132D2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildingBlock.Infrastructure.Serilog", "Infrastructures\BuildingBlock.Infrastructure.Serilog\BuildingBlock.Infrastructure.Serilog.csproj", "{C9891FE2-E5C6-4773-BCA0-919FDCC132D2}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{37ABC0F6-39B9-4057-955A-BA2CFDB64811}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentations", "Presentations", "{37ABC0F6-39B9-4057-955A-BA2CFDB64811}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{CFE5A713-D9C3-4215-A706-331C955F8E79}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{9BFF2EA3-E081-4A2B-8297-A028DDD73E4A}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructures", "Infrastructures", "{9BFF2EA3-E081-4A2B-8297-A028DDD73E4A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{DC3F11D0-5517-44CC-B4D8-D2FB6282B874}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildingBlock.Test.UnitTest", "Tests\BuildingBlock.Test.UnitTest\BuildingBlock.Test.UnitTest.csproj", "{DC3F11D0-5517-44CC-B4D8-D2FB6282B874}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{06A00771-DEB6-4D06-A233-2B10B091295D}"
 EndProject
