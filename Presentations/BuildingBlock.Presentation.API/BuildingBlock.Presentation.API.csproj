@@ -19,12 +19,12 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\..\Infrastructure\BuildingBlock.Infrastructure.Mailkit\BuildingBlock.Infrastructure.Mailkit.csproj"/>
-        <ProjectReference Include="..\..\Infrastructure\BuildingBlock.Infrastructure.Serilog\BuildingBlock.Infrastructure.Serilog.csproj"/>
-        <ProjectReference Include="..\..\Infrastructure\BuildingBlock.Infrastructure.EntityFrameworkCore\BuildingBlock.Infrastructure.EntityFrameworkCore.csproj"/>
-        <ProjectReference Include="..\..\Infrastructure\BuildingBlock.Infrastructure.RabbitMQ\BuildingBlock.Infrastructure.RabbitMQ.csproj"/>
-        <ProjectReference Include="..\..\Infrastructure\BuildingBlock.Infrastructure.Redis\BuildingBlock.Infrastructure.Redis.csproj"/>
-        <ProjectReference Include="..\..\Infrastructure\BuildingBlock.Infrastructure.Identity\BuildingBlock.Infrastructure.Identity.csproj"/>
+        <ProjectReference Include="..\..\Infrastructures\BuildingBlock.Infrastructure.EntityFrameworkCore\BuildingBlock.Infrastructure.EntityFrameworkCore.csproj"/>
+        <ProjectReference Include="..\..\Infrastructures\BuildingBlock.Infrastructure.Identity\BuildingBlock.Infrastructure.Identity.csproj"/>
+        <ProjectReference Include="..\..\Infrastructures\BuildingBlock.Infrastructure.Mailkit\BuildingBlock.Infrastructure.Mailkit.csproj"/>
+        <ProjectReference Include="..\..\Infrastructures\BuildingBlock.Infrastructure.RabbitMQ\BuildingBlock.Infrastructure.RabbitMQ.csproj"/>
+        <ProjectReference Include="..\..\Infrastructures\BuildingBlock.Infrastructure.Redis\BuildingBlock.Infrastructure.Redis.csproj"/>
+        <ProjectReference Include="..\..\Infrastructures\BuildingBlock.Infrastructure.Serilog\BuildingBlock.Infrastructure.Serilog.csproj"/>
     </ItemGroup>
 
 
