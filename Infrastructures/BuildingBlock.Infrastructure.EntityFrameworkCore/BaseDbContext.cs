@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BuildingBlock.Infrastructure.EntityFrameworkCore;
 
-public class BaseDbContext : DbContext
+public abstract class BaseDbContext : DbContext
 {
     private readonly ICurrentUser _currentUser;
     private readonly IMediator _mediator;
@@ -18,6 +18,8 @@ public class BaseDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
+        builder.ApplyConfigurationsFromAssembly(GetType().Assembly);
+
         base.OnModelCreating(builder);
     }
 
