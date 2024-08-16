@@ -55,7 +55,7 @@ public class ValueObjectTest
                 // Arrange
                 const string name = "string";
                 const string value = "";
-                var rule = new StringCanNotBeEmptyOrWhiteSpaceRule(value, name);
+                var rule = new StringMustNotBeEmptyOrWhiteSpace(value, name);
 
                 // Act
                 var action = () => ValueObject.CheckRule(rule);
@@ -75,7 +75,7 @@ public class ValueObjectTest
             public void ShouldDoNothingWhenRuleIsNotBroken()
             {
                 // Arrange
-                var rule = new StringCanNotBeEmptyOrWhiteSpaceRule("string", "string");
+                var rule = new StringMustNotBeEmptyOrWhiteSpace("string", "string");
 
                 // Act
                 var action = new Action(() => ValueObject.CheckRule(rule));

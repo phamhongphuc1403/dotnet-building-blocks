@@ -2,13 +2,13 @@ using BuildingBlock.Core.Domain.Rules.Abstractions;
 
 namespace BuildingBlock.Core.Domain.Rules.Implementations;
 
-public class StringCanNotBeEmptyOrWhiteSpaceRule : IBusinessRule
+public class StringMustNotBeEmptyOrWhiteSpace : IBusinessRule
 {
     private readonly string _name;
     private readonly string? _value;
 
 
-    public StringCanNotBeEmptyOrWhiteSpaceRule(string? value, string name)
+    public StringMustNotBeEmptyOrWhiteSpace(string? value, string name)
     {
         _value = value;
         _name = name;

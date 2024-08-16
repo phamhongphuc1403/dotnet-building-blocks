@@ -3,7 +3,7 @@ using FluentAssertions;
 
 namespace Tests.Core.Domain.Rules;
 
-public class StringCanNotBeEmptyOrWhiteSpaceRuleTest
+public class StringMustNotBeEmptyOrWhiteSpaceTest
 {
     private const string Name = "String";
 
@@ -14,7 +14,7 @@ public class StringCanNotBeEmptyOrWhiteSpaceRuleTest
         {
             // Arrange
             var value = string.Empty;
-            var stringCanNotBeEmptyOrWhiteSpaceRule = new StringCanNotBeEmptyOrWhiteSpaceRule(value, Name);
+            var stringCanNotBeEmptyOrWhiteSpaceRule = new StringMustNotBeEmptyOrWhiteSpace(value, Name);
 
             // Act
             var result = stringCanNotBeEmptyOrWhiteSpaceRule.IsBroken();
@@ -30,7 +30,7 @@ public class StringCanNotBeEmptyOrWhiteSpaceRuleTest
         {
             // Arrange
             string? value = null;
-            var stringCanNotBeEmptyOrWhiteSpaceRule = new StringCanNotBeEmptyOrWhiteSpaceRule(value, Name);
+            var stringCanNotBeEmptyOrWhiteSpaceRule = new StringMustNotBeEmptyOrWhiteSpace(value, Name);
 
             // Act
             var result = stringCanNotBeEmptyOrWhiteSpaceRule.IsBroken();
@@ -46,7 +46,7 @@ public class StringCanNotBeEmptyOrWhiteSpaceRuleTest
         {
             // Arrange
             var value = "        ";
-            var stringCanNotBeEmptyOrWhiteSpaceRule = new StringCanNotBeEmptyOrWhiteSpaceRule(value, Name);
+            var stringCanNotBeEmptyOrWhiteSpaceRule = new StringMustNotBeEmptyOrWhiteSpace(value, Name);
 
             // Act
             var result = stringCanNotBeEmptyOrWhiteSpaceRule.IsBroken();
@@ -65,7 +65,7 @@ public class StringCanNotBeEmptyOrWhiteSpaceRuleTest
         {
             // Arrange
             var value = "test";
-            var stringCanNotBeEmptyOrWhiteSpaceRule = new StringCanNotBeEmptyOrWhiteSpaceRule(value, Name);
+            var stringCanNotBeEmptyOrWhiteSpaceRule = new StringMustNotBeEmptyOrWhiteSpace(value, Name);
 
             // Act
             var result = stringCanNotBeEmptyOrWhiteSpaceRule.IsBroken();
