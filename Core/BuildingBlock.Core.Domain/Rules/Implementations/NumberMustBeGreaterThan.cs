@@ -1,4 +1,5 @@
 using BuildingBlock.Core.Domain.Rules.Abstractions;
+using BuildingBlock.Core.Domain.Shared.Utils;
 
 namespace BuildingBlock.Core.Domain.Rules.Implementations;
 
@@ -45,7 +46,8 @@ public class NumberMustBeGreaterThan : IBusinessRule
         var valueName = _valueName is not null ? $"{_valueName}: " : string.Empty;
         var compareValueName = _compareValueName is not null ? $"{_compareValueName}: " : string.Empty;
 
-        Message = $"{valueName}{_value} must be greater than {compareValueName}{_compareValue}.";
+        Message =
+            $"{valueName}{DoubleUtility.ToString(Convert.ToDouble(_value))} must be greater than {compareValueName}{DoubleUtility.ToString(Convert.ToDouble(_compareValue))}.";
 
         return true;
     }
