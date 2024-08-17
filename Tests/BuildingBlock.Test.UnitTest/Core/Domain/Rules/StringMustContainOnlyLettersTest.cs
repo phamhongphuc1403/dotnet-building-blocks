@@ -11,42 +11,43 @@ public class StringMustContainOnlyLettersTest
         public void WhenStringContainsWhiteSpace()
         {
             // Arrange
-            var stringMustContainOnlyLetters = new StringMustContainOnlyLetters("String with white space");
+            var stringMustContainOnlyLetters = new StringMustContainOnlyLetters("String with white space", "key");
 
             // Act
             var result = stringMustContainOnlyLetters.IsBroken();
 
             // Assert
             result.Should().BeTrue();
-            stringMustContainOnlyLetters.Message.Should().Be("String must only contain only letters");
+            stringMustContainOnlyLetters.Message.Should().Be("key must contain only letters");
         }
 
         [Fact]
         public void WhenStringContainsNumber()
         {
             // Arrange
-            var stringMustContainOnlyLetters = new StringMustContainOnlyLetters("String with number 1");
+            var stringMustContainOnlyLetters = new StringMustContainOnlyLetters("String with number 1", "key");
 
             // Act
             var result = stringMustContainOnlyLetters.IsBroken();
 
             // Assert
             result.Should().BeTrue();
-            stringMustContainOnlyLetters.Message.Should().Be("String must only contain only letters");
+            stringMustContainOnlyLetters.Message.Should().Be("key must contain only letters");
         }
 
         [Fact]
         public void WhenStringContainsSpecialCharacter()
         {
             // Arrange
-            var stringMustContainOnlyLetters = new StringMustContainOnlyLetters("String with special character !");
+            var stringMustContainOnlyLetters =
+                new StringMustContainOnlyLetters("String with special character !", "key");
 
             // Act
             var result = stringMustContainOnlyLetters.IsBroken();
 
             // Assert
             result.Should().BeTrue();
-            stringMustContainOnlyLetters.Message.Should().Be("String must only contain only letters");
+            stringMustContainOnlyLetters.Message.Should().Be("key must contain only letters");
         }
     }
 
@@ -56,7 +57,7 @@ public class StringMustContainOnlyLettersTest
         public void WhenStringContainsOnlyLetters()
         {
             // Arrange
-            var stringMustContainOnlyLetters = new StringMustContainOnlyLetters("StringWithOnlyLetters");
+            var stringMustContainOnlyLetters = new StringMustContainOnlyLetters("StringWithOnlyLetters", "key");
 
             // Act
             var result = stringMustContainOnlyLetters.IsBroken();

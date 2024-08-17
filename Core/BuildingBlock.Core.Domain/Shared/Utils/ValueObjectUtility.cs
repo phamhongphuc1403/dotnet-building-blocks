@@ -1,7 +1,7 @@
 using System.Text;
 using BuildingBlock.Core.Domain.ValueObjects.Abstractions;
 
-namespace BuildingBlock.Core.Domain.ValueObjects;
+namespace BuildingBlock.Core.Domain.Shared.Utils;
 
 public static class ValueObjectUtility
 {

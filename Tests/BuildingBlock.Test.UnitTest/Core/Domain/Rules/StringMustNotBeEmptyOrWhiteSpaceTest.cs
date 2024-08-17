@@ -5,16 +5,13 @@ namespace Tests.Core.Domain.Rules;
 
 public class StringMustNotBeEmptyOrWhiteSpaceTest
 {
-    private const string Name = "String";
-
     public class ShouldReturnTrue
     {
         [Fact]
         public void WhenStringIsEmpty()
         {
             // Arrange
-            var value = string.Empty;
-            var stringCanNotBeEmptyOrWhiteSpaceRule = new StringMustNotBeEmptyOrWhiteSpace(value, Name);
+            var stringCanNotBeEmptyOrWhiteSpaceRule = new StringMustNotBeEmptyOrWhiteSpace(string.Empty, "string");
 
             // Act
             var result = stringCanNotBeEmptyOrWhiteSpaceRule.IsBroken();
@@ -22,15 +19,14 @@ public class StringMustNotBeEmptyOrWhiteSpaceTest
             // Assert
             result.Should().BeTrue();
             stringCanNotBeEmptyOrWhiteSpaceRule.Message.Should()
-                .Be($"{Name} with value: {value} can not be empty or contain only white spaces.");
+                .Be("string with value: '' can not be empty or contain only white spaces.");
         }
 
         [Fact]
         public void WhenStringIsNull()
         {
             // Arrange
-            string? value = null;
-            var stringCanNotBeEmptyOrWhiteSpaceRule = new StringMustNotBeEmptyOrWhiteSpace(value, Name);
+            var stringCanNotBeEmptyOrWhiteSpaceRule = new StringMustNotBeEmptyOrWhiteSpace(null, "string");
 
             // Act
             var result = stringCanNotBeEmptyOrWhiteSpaceRule.IsBroken();
@@ -38,15 +34,14 @@ public class StringMustNotBeEmptyOrWhiteSpaceTest
             // Assert
             result.Should().BeTrue();
             stringCanNotBeEmptyOrWhiteSpaceRule.Message.Should()
-                .Be($"{Name} with value: {value} can not be empty or contain only white spaces.");
+                .Be("string with value: '' can not be empty or contain only white spaces.");
         }
 
         [Fact]
         public void WhenStringContainsOnlyWhiteSpaces()
         {
             // Arrange
-            var value = "        ";
-            var stringCanNotBeEmptyOrWhiteSpaceRule = new StringMustNotBeEmptyOrWhiteSpace(value, Name);
+            var stringCanNotBeEmptyOrWhiteSpaceRule = new StringMustNotBeEmptyOrWhiteSpace("        ", "string");
 
             // Act
             var result = stringCanNotBeEmptyOrWhiteSpaceRule.IsBroken();
@@ -54,7 +49,7 @@ public class StringMustNotBeEmptyOrWhiteSpaceTest
             // Assert
             result.Should().BeTrue();
             stringCanNotBeEmptyOrWhiteSpaceRule.Message.Should()
-                .Be($"{Name} with value: {value} can not be empty or contain only white spaces.");
+                .Be("string with value: '        ' can not be empty or contain only white spaces.");
         }
     }
 
@@ -64,8 +59,7 @@ public class StringMustNotBeEmptyOrWhiteSpaceTest
         public void WhenStringContainsCharacters()
         {
             // Arrange
-            var value = "test";
-            var stringCanNotBeEmptyOrWhiteSpaceRule = new StringMustNotBeEmptyOrWhiteSpace(value, Name);
+            var stringCanNotBeEmptyOrWhiteSpaceRule = new StringMustNotBeEmptyOrWhiteSpace("test", "string");
 
             // Act
             var result = stringCanNotBeEmptyOrWhiteSpaceRule.IsBroken();

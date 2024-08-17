@@ -4,18 +4,20 @@ namespace BuildingBlock.Core.Domain.Rules.Implementations;
 
 public class StringMustContainOnlyLetters : IBusinessRule
 {
+    private readonly string _name;
     private readonly string _value;
 
-    public StringMustContainOnlyLetters(string value)
+    public StringMustContainOnlyLetters(string value, string name)
     {
         _value = value;
+        _name = name;
     }
 
     public bool IsBroken()
     {
         if (_value.All(char.IsLetter)) return false;
 
-        Message = "String must only contain only letters";
+        Message = $"{_name} must contain only letters";
 
         return true;
     }
