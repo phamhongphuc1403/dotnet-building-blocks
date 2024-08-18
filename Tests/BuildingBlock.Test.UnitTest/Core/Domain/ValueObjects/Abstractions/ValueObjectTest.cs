@@ -62,7 +62,8 @@ public class ValueObjectTest
 
                 // Assert
                 action.Should().Throw<ValidationException>();
-                rule.Message.Should().Be($"{name} with value: {value} can not be empty or contain only white spaces.");
+                rule.Message.Should()
+                    .Be($"{name} with value: '{value}' can not be empty or contain only white spaces.");
             }
         }
     }
