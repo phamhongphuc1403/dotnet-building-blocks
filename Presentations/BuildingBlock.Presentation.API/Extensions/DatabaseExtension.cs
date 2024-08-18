@@ -21,6 +21,7 @@ public static class DatabaseExtension
             options.UseNpgsql(databaseConfiguration.ToString(),
                 o => { o.MigrationsHistoryTable(HistoryRepository.DefaultTableName, typeof(TDbContext).Name); });
             options.EnableSensitiveDataLogging();
+            options.UseSnakeCaseNamingConvention();
         });
 
         services.AddScoped<Func<DbContext>>(provider => () => provider.GetService<TDbContext>()!);
