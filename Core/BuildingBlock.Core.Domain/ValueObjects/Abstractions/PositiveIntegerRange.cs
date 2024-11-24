@@ -1,4 +1,5 @@
 using BuildingBlock.Core.Domain.Rules.Implementations;
+using BuildingBlock.Core.Domain.Shared.Utils;
 
 namespace BuildingBlock.Core.Domain.ValueObjects.Abstractions;
 
