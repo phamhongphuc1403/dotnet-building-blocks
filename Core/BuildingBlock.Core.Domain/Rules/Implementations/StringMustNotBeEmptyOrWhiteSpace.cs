@@ -20,7 +20,7 @@ public class StringMustNotBeEmptyOrWhiteSpace : IBusinessRule
     {
         if (!string.IsNullOrEmpty(_value) && !string.IsNullOrWhiteSpace(_value)) return false;
 
-        Message = $"{_name} with value: {_value} can not be empty or contain only white spaces.";
+        Message = $"{_name} with value: '{_value}' can not be empty or contain only white spaces.";
         return true;
     }
 }
