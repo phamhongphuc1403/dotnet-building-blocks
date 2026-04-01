@@ -10,7 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace BuildingBlock.Presentation.API.Extensions;
 
-public static partial class DependencyInjection
+public static partial class DependencyInjectionExtension
 {
     public static IServiceCollection RegisterServices<TAssemblyReference>(this IServiceCollection services)
     {
